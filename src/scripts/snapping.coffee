@@ -1,3 +1,18 @@
+runRotation = (el, radius, revolution, reverse=false) ->
+	if reverse
+		el.attr { "stroke-dashoffset": "#{2*Math.PI*radius}" }
+		el.animate
+			"stroke-dashoffset": "0",
+			revolution, ->
+				runRotation el, radius, revolution, reverse
+	else
+		el.animate
+			"stroke-dashoffset": "#{2*Math.PI*radius}",
+			revolution, ->
+				el.attr { "stroke-dashoffset": "0" }
+				runRotation el, radius, revolution, reverse
+
+
 setupTitle = ->
 	paper = Snap "#logo"
 
@@ -29,6 +44,45 @@ setupTitle = ->
 		setTimeout ->
 			$btns = $('.nav-btn').removeClass 'hidden',
 			2000
+
+
+setupProfile = ->
+	paper = Snap "#portrait"
+	gray = paper.filter (Snap.filter.grayscale 1)
+
+	image = paper.image "imgs/aventry.png", 50, 50, 400, 400
+		.pattern()
+
+	center = 250
+
+	aventry = paper.circle center, center, 150
+		.attr
+			fill: image
+
+	effect1 = paper.circle center, center, 180
+		.attr
+			stroke: "#34919C"
+			"stroke-width": "5"
+			fill: "none"
+			"stroke-dasharray": "#{Math.PI * 180} #{Math.PI * 180}"
+
+	effect2 = paper.circle center, center, 200
+		.attr
+			stroke: "#D5DED7"
+			"stroke-width": "5"
+			fill: "none"
+			"stroke-dasharray": "#{Math.PI * 200} #{Math.PI * 200}"
+
+	effect3 = paper.circle center, center, 220
+		.attr
+			stroke: "#FFE9AD"
+			"stroke-width": "5"
+			fill: "none"
+			"stroke-dasharray": "#{Math.PI * 220} #{Math.PI * 220}"
+
+	runRotation effect1, 180, 1500
+	runRotation effect2, 200, 2000, true
+	runRotation effect3, 220, 3000
 
 
 spinAndFill = (el, filler) ->
@@ -76,5 +130,5 @@ setupIcons = ->
 
 $ ->
 	setupTitle()
-
 	setupIcons()
+	setupProfile()

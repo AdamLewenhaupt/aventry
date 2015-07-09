@@ -1,3 +1,6 @@
 @mixin grayscale($val) {
     filter: grayscale($val);
+    -webkit-filter: grayscale($val);
+    -moz-filter: grayscale($val);
+    -o-filter: grayscale($val);
 }

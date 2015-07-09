@@ -1,3 +1,10 @@
+.round {
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%; }
+
 .unselectable {
   -moz-user-select: none;
   /* These user-select properties are inheritable, used to prevent text selection */
@@ -10,6 +17,12 @@
   /* Prevents dragging of images/divs etc */
   user-drag: none; }
 
+.disable-select, .nav-btn .btn-content {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 @font-face {
   family: CgPro;
   src: url(cg-pro.otf); }
@@ -19,12 +32,6 @@ html {
 body {
   margin: 0px;
   background-color: #221D19; }
-
-.disable-select, .nav-btn .btn-content {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
 
 .screen-fill, #logo-wrapper, #nav, #music, #bio {
   position: absolute;
@@ -55,14 +62,14 @@ body {
   height: calc(100% - 20px);
   top: 10px;
   display: inline-block;
-  transition: opacity 1s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  transition: opacity 2s cubic-bezier(0.755, 0.05, 0.855, 0.06);
   text-align: center;
   line-height: 100%;
   font-size: 4vh; }
 
 .nav-btn .btn-content {
   position: relative;
-  border-bottom: 2px solid #FFFFFF;
+  border-bottom-style: solid;
   display: inline-block;
   padding-bottom: 10px;
   top: 30%;
@@ -74,7 +81,7 @@ body {
 
 .nav-btn:nth-child(2) {
   left: calc(15px);
-  transition-delay: 0.2s; }
+  transition-delay: 0.5s; }
 
 .hidden {
   opacity: 0; }
@@ -87,7 +94,6 @@ body {
   background-image: -o-linear-gradient(white, gray);
   background-image: -ms-linear-gradient(white, gray);
   background-image: linear-gradient(white, gray);
-  background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -102,35 +108,61 @@ body {
 #bio {
   top: 180%;
   bottom: -160%;
-  background-color: gray;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(gray));
-  background-image: -webkit-linear-gradient(white, gray);
-  background-image: -moz-linear-gradient(white, gray);
-  background-image: -o-linear-gradient(white, gray);
-  background-image: -ms-linear-gradient(white, gray);
-  background-image: linear-gradient(white, gray);
-  background-repeat: no-repeat;
+  background-color: black;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(gray), to(black));
+  background-image: -webkit-linear-gradient(gray, black);
+  background-image: -moz-linear-gradient(gray, black);
+  background-image: -o-linear-gradient(gray, black);
+  background-image: -ms-linear-gradient(gray, black);
+  background-image: linear-gradient(gray, black);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  text-align: center;
   z-index: 4; }
+  #bio p {
+    font-size: 3vh;
+    color: #cccccc; }
+  #bio #footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    font-size: 1.5vh;
+    color: #4d4d4d; }
+    #bio #footer a {
+      color: #363663;
+      text-decoration: none; }
+  #bio #portrait {
+    margin-top: 3%;
+    width: auto;
+    height: 60%;
+    left: 25%; }
 
 .music-row {
+  width: 100%;
   position: relative;
   height: 30vh;
-  margin-top: 2vh; }
+  margin-top: 2vh;
+  text-align: center; }
   .music-row .song-wrapper {
-    float: left;
+    display: inline-block;
     margin-left: 2vh;
     position: relative;
     width: 30vh;
-    height: 100%;
+    height: 30vh;
     filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    -o-filter: grayscale(1);
     background-repeat: no-repeat;
     background-size: 100% 100%; }
   .music-row .song-wrapper:hover {
-    filter: grayscale(0); }
+    filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    -o-filter: grayscale(0); }
 
 .icon-row {
   position: relative;
@@ -138,9 +170,27 @@ body {
   margin-top: 2vh;
   text-align: center; }
   .icon-row .icon-wrapper {
-    display: inline-block; }
+    display: inline-block;
+    margin-left: 1%;
+    margin-right: 1%; }
     .icon-row .icon-wrapper svg {
       width: auto;
       height: 10vh; }
+
+@media (max-width: 765px) {
+  .music-row {
+    height: 25vw; }
+    .music-row .song-wrapper {
+      width: 25vw;
+      height: 25vw; }
+
+  #music {
+    padding-top: 5%; } }
+@media (max-width: 450px) {
+  #music {
+    padding-top: 20%; }
+
+  .nav-btn .btn-content {
+    width: 50%; } }
 
 /*# sourceMappingURL=main.css.map */

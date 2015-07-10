@@ -8,36 +8,48 @@
 	<script type="text/javascript" src="snap.svg.js"></script>
 	<script type="text/javascript" src="skrollr.js"></script>
 	<script type="text/javascript" src="underscore.js"></script>
+	<script type="text/javascript" src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
+	<script type="text/javascript">
+	SC.initialize({
+	  client_id: "9d1cbd39001e5ab06a56ef60fce34af2"
+	});
+	</script>
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-	<div id="logo-wrapper">
+	<div id="logo-wrapper"
+		data-start="top:0%;bottom:20%;"
+		data-_music="top:-100%;bottom:100%;">
 		<svg id="logo" viewBox="0 0 1200 400"></svg>
 	</div>
 	<!--   -->
 	<div id="nav"
-		data-start="background-position: 50% 0%;"
+		data-start="background-position: 50% 0%;top:80%;bottom:0%;"
+		data-_music="top:0%;bottom:80%;background-position:50% 25%;"
 		data-end="background-position: 50% 50%;">
 		<div id="music-btn" class="nav-btn hidden"
 			data-0="color:hsl(0,0%, 100%);"
 			data-_music="color:hsl(195, 49%, 70%);"
 			data-_bio="color:hsl(0,0%, 100%);">
 			<div class="btn-content"
-			data=0="border-bottom-width[begin]:2px;"
-			data-_music--100="border-bottom-width[begin]:20px;"
-			data-_bio--100="border-bottom-width[begin]:2px;">MUSIC</div>
+			data=0="border-bottom-width[begin]:0.5vw;"
+			data-_music--100="border-bottom-width[begin]:1vw;"
+			data-_bio--100="border-bottom-width[begin]:0.5vw;">MUSIC</div>
 		</div>
 		<div id="bio-btn" class="nav-btn hidden"
 			data-0="color:hsl(0,0%,100%);"
 			data-_music="color:hsl(0,0%,100%);"
 			data-_bio="color:hsl(195, 49%, 70%);">
 			<div class="btn-content"
-			data=0="border-bottom-width[begin]:2px;"
-			data-_music--100="border-bottom-width[begin]:2px;"
-			data-_bio--100="border-bottom-width[begin]:20px;">ME</div>
+			data=0="border-bottom-width[begin]:0.5vw;"
+			data-_music--100="border-bottom-width[begin]:0.5vw;"
+			data-_bio--100="border-bottom-width[begin]:1vw;">ME</div>
 		</div>
 	</div>
-	<div id="music">
+	<div id="music"
+		data-0="top:100%;bottom:-100%;"
+		data-_music="top:20%;bottom:0%;"
+		data-_bio="top:-100%;bottom:80%;">
 		<div class="music-row"
 			data-0="left:-100%;"
 			data-_music--50="left:0%;"
@@ -62,9 +74,14 @@
 			</a>
 		</div>
 	</div>
-	<div id="bio">
-		<svg id="portrait" viewBox="0 0 500 500" />
+	<div id="bio"
+		data-0="top:100%;bottom:-100%;"
+		data-_music="top:100%;bottom:-100%;"
+		data-_bio="top:20%;bottom:0%;"
+		data-_end="top:20%;bottom:0%;">
+		<svg id="portrait" viewBox="0 0 500 500"></svg>
 		<p>Alexander Lewenhaupt<br/>Sweden, Stockholm</p>
-		<p id="footer">Site created by <a href="https://sitesnickarna.se" target="_blank">SiteSnickarna<a/></p>
+		<p id="footer">Site created by <a href="https://sitesnickarna.se" target="_blank">SiteSnickarna</a></p>
+	</div>
 </body>
 </html>

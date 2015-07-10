@@ -1,3 +1,83 @@
+rot = (el, deg) ->
+	bbox = el.getBBox()
+	"r#{deg},#{bbox.cx},#{bbox.cy}"
+
+setupPlayPause = (el) ->
+	paper = Snap el
+	play = undefined
+	pause = undefined
+
+	Snap.load 'imgs/playbutton.svg', (f) ->
+
+		play = f.select '#play'
+		paper.append play
+
+		play.attr
+			stroke: "none"
+
+	Snap.load 'imgs/pausebutton.svg', (f) ->
+
+		pause = f.select '#pause'
+		paper.append pause
+
+		pause.selectAll('path')
+			.attr
+				stroke: "none"
+				"fill-opacity": "0"
+
+	playFn = ->
+		play.attr
+			transform: rot(play,0)
+
+		pause.attr
+			transform: rot(pause,180)
+
+		play.animate 
+			transform: rot(play,180),
+			"fill-opacity": '0'
+			250
+
+		pause.animate
+			transform: rot(pause,360),
+			250
+
+		pause.selectAll('path').animate
+			"fill-opacity": '1',
+			250
+
+	pauseFn = ->
+		play.animate 
+			transform: rot(play,360),
+			"fill-opacity": '1'
+			250
+
+		pause.animate
+			transform: rot(pause,480),
+			250
+
+		pause.selectAll('path').animate
+			"fill-opacity": '0',
+			250
+
+	resetFn = ->
+		play.attr
+			transform: rot(play,0)
+			'fill-opacity': '1'
+
+		pause.attr
+			transform: rot(pause,180)
+
+		pause.selectAll('path').attr
+			'fill-opacity': '0'
+
+
+	obj =
+		animatePlay: playFn
+		animatePause: pauseFn
+		reset: resetFn
+	obj
+
+
 runRotation = (el, radius, revolution, reverse=false) ->
 	if reverse
 		el.attr { "stroke-dashoffset": "#{2*Math.PI*radius}" }

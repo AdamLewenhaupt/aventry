@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg width="48" height="48.000001" xmlns="http://www.w3.org/2000/svg">
+
+ <metadata id="metadata4147">image/svg+xml</metadata>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g id="pause">
+  <path fill="#fdfdff" fill-rule="nonzero" stroke="#000000" stroke-width="0.051" stroke-linejoin="bevel" stroke-miterlimit="4" d="m8.98985,4.025818l9.999999,0l0,39.999939l-9.999999,0l0,-39.999939z" id="rect4692"/>
+  <path fill="#fdfdff" fill-rule="nonzero" stroke="#000000" stroke-width="0.051" stroke-linejoin="bevel" stroke-miterlimit="4" d="m29.034651,4.036194l9.999998,0l0,40.000061l-9.999998,0l0,-40.000061z" id="rect4692-9"/>
+ </g>
+</svg>
